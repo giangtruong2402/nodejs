@@ -192,6 +192,37 @@ const getUsers = asyncHandler(async (req, res) => {
   })
   
 })
+const getUsersById = asyncHandler(async (req, res) => {
+  const { uid } = req.params; // Lấy ID từ route params
+  if (!uid) {
+    return res.status(400).json({
+      success: false,
+      message: "Missing user ID",
+    });
+  }
+
+  try {
+    const response = await User.findById(uid).select("-password -role -refreshToken");
+    if (!response) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      user: response,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+});
+
 const deleteUser = asyncHandler(async (req, res) => {
   const { _id } = req.query;
   if (!_id) throw new Error("Missing input");
@@ -235,4 +266,5 @@ module.exports = {
   deleteUser,
   updateUser,
   updateUserByAdmin,
+  getUsersById
 };
