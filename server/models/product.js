@@ -1,57 +1,61 @@
-const mongoose = require('mongoose'); // Erase if already required
+const mongoose = require("mongoose"); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var productSchema = new mongoose.Schema({
-    title:{
-        type:String,
-        required:true,
-        trim:true
+var productSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+      trim: true,
     },
-    slug: { 
-        type: String, 
-        required: true, 
-        unique: true, 
-        lowercase: true },
-    description: { 
-        type: String, 
-        required: true },
+    slug: {
+      type: String,
+      required: true,
+      lowercase: true,
+    },
+    description: {
+      type: Array,
+      required: true,
+    },
     brand: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
-    thumb: { type: String, required: false },
+    thumb: { type: String, required: true },
     fileNameThumb: String,
-
-
-    price: { 
-        type: String, 
-        required: true },
-    category: { 
-        type: mongoose.Types.ObjectId, 
-        ref: 'Category' },
-    quantity: { 
-        type: Number, 
-        default: 0 },
-    sold: { 
-        type: Number, 
-        default: 0 },
-    images:{
-        type: Array,
+    price: {
+      type: Number,
+      required: true,
     },
-    color: { 
-        type: String, 
-        enum: ['Black', 'Grown', 'Red', 'yellow'] },
+    category: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      default: 0,
+    },
+    sold: {
+      type: Number,
+      default: 0,
+    },
+    images: Array,
+    fileNameImages: Array,
+    color: {
+      type: String,
+      require: true,
+    },
     ratings: [
       {
-        star: {type: Number},
+        star: { type: Number },
         posteBy: { type: mongoose.Types.ObjectId, ref: "User" },
-        comment: {type: String},
-       
+        comment: { type: String },
       },
     ],
-    totalRatings: { 
-        type: Number, 
-        default: 0 },
+    totalRatings: {
+      type: Number,
+      default: 0,
+    },
     varriantis: [
       {
         color: String,
@@ -64,9 +68,9 @@ var productSchema = new mongoose.Schema({
         sold: { type: Number, default: 0 },
       },
     ],
-},
-{ timestamps:true }
+  },
+  { timestamps: true }
 );
 
 //Export the model
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model("Product", productSchema);

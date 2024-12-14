@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* index.css */
+button.slick-next {
+    right: 4px;
+    z-index: 10;
+    position: absolute;
+    top: 45%;
+}
+
+
+button.slick-prev {
+    left: -8px;
+    z-index: 10;
+    position: absolute;
+    top: 45%;
+}
+
+
+button.slick-next::before { 
+    color: white;
+    content: '\276F'; 
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding-left: 10px; 
+    width: 30px; 
+    height: 60px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 50% 0 0 50%;
+}
+
+
+button.slick-prev::before {
+    color: white;
+    content: '\276E'; 
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    width: 30px; 
+    height: 60px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 0 50% 50% 0; 
+}
+
+/* banner */
+.banner-slider button.slick-next {
+  right: 13px;
+
+  position: absolute;
+  top: 45%;
+  display: none;
+}
+
+.banner-slider button.slick-prev {
+  left: -27px;
+
+  position: absolute;
+  top: 45%;
+  display: none;
+}
+
+.banner-slider button.slick-next::before {
+  color: white;
+  content: '\276F'; 
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-left: 10px; 
+  width: 60px;
+  height: 60px; 
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50% 0 0 50%; 
+}
+
+.banner-slider button.slick-prev::before {
+  color: white;
+  content: '\276E'; 
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  padding-right: 10px; 
+  width: 60px; 
+  height: 60px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 0 50% 50% 0; 
+}
+
+
+
+.image-slide button.slick-next {
+  right: 10px;
+  z-index: 10;
+  position: absolute;
+  top: 45%;
+  display: none;
+}
+
+.image-slide button.slick-prev {
+  left: -1px;
+  z-index: 10;
+  position: absolute;
+  top: 45%;
+  display: none;
+}
+
+.image-slide button.slick-next::before {
+  color: red;
+  content: '\276F'; 
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-left: 10px; 
+  width: 30px;
+  height: 60px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 50% 0 0 50%; 
+}
+
+.image-slide button.slick-prev::before {
+  color: red;
+  content: '\276E'; 
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  padding-right: 10px; 
+  width: 30px; 
+  height: 60px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 0 50% 50% 0; 
+}
+.my-masonry-grid {
+  display: flex;
+  margin-left: -10px;
+  margin-right: -10px;
+  gap: 16px; /* Adjusts the horizontal gap between products */
+}
+
+.my-masonry-grid_column {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/* Product Card Wrapper */
+.product-card-wrapper {
+  margin-bottom: 16px; /* Vertical spacing between products */
+}
+
+/* Product Card Styles */
+.product-card {
+  background-color: #fff; /* White background for product cards */
+  border: 1px solid #f0f0f0; /* Light border around product cards */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevents image overflow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  background: #fafafa; /* Light background color for the product cards */
+}
+
+/* Hover Effect */
+.product-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow effect */
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Smooth image scaling effect */
+}
+
+/* Image Scaling on Hover */
+.product-card:hover img {
+  transform: scale(1.05); /* Slightly scale up image on hover */
+}
+
+/* Responsive Styling for Product Cards */
+@media (max-width: 1100px) {
+  .my-masonry-grid {
+    gap: 12px; /* Smaller gap for medium screens */
+  }
+}
+
+@media (max-width: 700px) {
+  .my-masonry-grid {
+    gap: 10px; /* Even smaller gap for small screens */
+  }
+}
+
+@media (max-width: 500px) {
+  .my-masonry-grid {
+    gap: 8px; /* Smallest gap for mobile screens */
+  }
+}
